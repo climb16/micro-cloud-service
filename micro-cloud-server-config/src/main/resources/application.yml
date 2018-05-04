@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 7000
 spring:
   application:
     name: micro-config-server
@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/laohuaishu/micro-cloud-service
-          basedir: config-repo
+          uri: https://github.com/laohuaishu/config-repo
+          #basedir: config-repo
           #username: 2634113451@qq.com
           #password: xiao920616!@#
