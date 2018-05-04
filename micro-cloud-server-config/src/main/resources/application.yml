@@ -7,7 +7,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/laohuaishu/config-repo/
-          search-paths: service-*-repo,server-*-repo
-          #username: 2634113451@qq.com
-          #password: xiao920616!@#
+          uri: https://github.com/laohuaishu/micro-cloud-service/
+          search-paths: config-repo/service-*-repo,config-repo/server-*-repo
