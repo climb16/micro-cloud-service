@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: service-user
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://101.200.87.36:7000
