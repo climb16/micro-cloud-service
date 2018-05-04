@@ -6,7 +6,11 @@
 
     <groupId>online.jfree</groupId>
     <artifactId>micro-cloud-service</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>micro-cloud-server-config</module>
+    </modules>
 
     <parent>
         <groupId>online.jfree.parent</groupId>
