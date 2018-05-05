@@ -7,5 +7,24 @@ spring:
     config:
       server:
         git:
+          #默认仓库配置
           uri: https://github.com/laohuaishu/micro-cloud-service/
           search-paths: config-repo/service-*-repo,config-repo/server-*-repo
+          #basedir:   git本地仓库位置 默认 /tmp/config-repo-
+          #不同环境仓库配置
+          #repos:
+          #  dev:
+          #    patten: dev/*
+          #    uri: file://home/git/micro-cloud-service/
+          #    search-paths: config-repo/service-*-repo/dev,config-repo/server-*-repo/dev
+        #覆盖仓库中的属性
+        #overrides:
+        #  from: test
+#访问安全配置
+security:
+  user:
+    name: user
+    password: be6e0132-5463-4e4e-981b-03bac4789d47
+    role: admin
+  basic:
+    enabled: true
