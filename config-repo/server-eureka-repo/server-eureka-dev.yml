@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: server-eureka
+---
+spring:
+  profiles: peer01
+server:
+  port: 7006
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    app-group-name: server-eureka
+    appname: server-eureka-peer01
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: http://101.200.87.36:7007/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+---
+spring:
+  profiles: peer02
+server:
+  port: 7007
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    app-group-name: server-eureka
+    appname: server-eureka-peer02
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: http://101.200.87.36:7006/eureka/
+    register-with-eureka: true
+    fetch-registry: true
