@@ -11,6 +11,7 @@
     <modules>
         <module>micro-cloud-server-config</module>
         <module>micro-cloud-service-user</module>
+        <module>micro-cloud-server-eureka</module>
     </modules>
 
     <parent>
