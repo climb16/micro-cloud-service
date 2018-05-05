@@ -1,9 +1,7 @@
 spring:
+  profiles: dev-peer01
   application:
-    name: server-eureka
----
-spring:
-  profiles: peer01
+      name: server-eureka
 server:
   port: 7006
 eureka:
@@ -16,12 +14,14 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      default-zone: http://101.200.87.36:7007/eureka/
+      default-zone: http://10.171.91.140:7007/eureka/
     register-with-eureka: true
     fetch-registry: true
 ---
 spring:
-  profiles: peer02
+  profiles: dev-peer02
+  application:
+      name: server-eureka
 server:
   port: 7007
 eureka:
@@ -34,6 +34,6 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      default-zone: http://101.200.87.36:7006/eureka/
+      default-zone: http://10.171.91.140:7006/eureka/
     register-with-eureka: true
     fetch-registry: true
