@@ -1,5 +1,8 @@
 spring:
   profiles: peer1
+  cloud:
+    inetutils:
+      ignored-interfaces[0]: eth0
 server:
   port: 7006
 eureka:
@@ -18,6 +21,9 @@ eureka:
 ---
 spring:
   profiles: peer2
+  cloud:
+    inetutils:
+      ignored-interfaces[0]: eth0
 server:
   port: 7007
 eureka:
