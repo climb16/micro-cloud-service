@@ -1,9 +1,12 @@
 server:
   port: 7000
 spring:
+  profiles: peer1
   application:
     name: micro-config-server
   cloud:
+    inetutils:
+      ignored-interfaces[0]: eth0
     config:
       server:
         git:
@@ -21,6 +24,57 @@ spring:
         #覆盖仓库中的属性
         #overrides:
         #  from: test
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    app-group-name: server-config
+  client:
+    service-url:
+      defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
+#访问安全配置
+security:
+  user:
+    name: user
+    password: be6e0132-5463-4e4e-981b-03bac4789d47
+    role: admin
+  basic:
+    enabled: true
+---
+server:
+  port: 7001
+spring:
+  profiles: peer2
+  application:
+    name: micro-config-server
+  cloud:
+    inetutils:
+      ignored-interfaces[0]: eth0
+    config:
+      server:
+        git:
+          #默认仓库配置
+          uri: https://github.com/laohuaishu/micro-cloud-service/
+          search-paths: config-repo/service-*-repo,config-repo/server-*-repo
+          #git本地仓库位置 默认 /tmp/config-repo-
+          basedir: /home/server/config/config-resp
+          #不同环境仓库配置
+          #repos:
+          #  dev:
+          #    patten: dev/*
+          #    uri: file://home/git/micro-cloud-service/
+          #    search-paths: config-repo/service-*-repo/dev,config-repo/server-*-repo/dev
+        #覆盖仓库中的属性
+        #overrides:
+        #  from: test
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    app-group-name: server-config
+  client:
+    service-url:
+      defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
 #访问安全配置
 security:
   user:
