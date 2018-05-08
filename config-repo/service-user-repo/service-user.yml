@@ -1,11 +1,17 @@
 spring:
   profiles: peer1
+  cloud:
+    inetutils:
+      ignored-interfaces[0]: eth0
 from: git-dev-1.1
 server:
   port: 8000
 ---
 spring:
   profiles: peer2
+  cloud:
+      inetutils:
+        ignored-interfaces[0]: eth0
 from: git-dev-1.2
 server:
   port: 8001
