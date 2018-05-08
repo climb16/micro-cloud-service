@@ -1,0 +1,11 @@
+sspring:
+  profiles: peer1
+from: git-dev-1.1
+server:
+  port: 8000
+---
+sspring:
+  profiles: peer2
+from: git-dev-1.1
+server:
+  port: 8001

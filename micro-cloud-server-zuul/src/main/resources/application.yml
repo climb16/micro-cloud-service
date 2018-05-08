@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: micro-server-api-gateway
+server:
+  port: 7010
