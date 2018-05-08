@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: micro-server-api-gateway
+  cloud:
+    config:
+      profile: ${spring.profiles.active}
+      label: master
+      #uri: http://101.200.87.36:7000
+      username: user
+      password: be6e0132-5463-4e4e-981b-03bac4789d47
+      discovery: #从eureka获取config地址
+        enabled: true
+        service-id: MICRO-CONFIG-SERVER
+      fail-fast: true   #快速失败，快速验证 config 是否可用,开启后retry才会生效
+      retry: #重试机制
+        initial-interval: 1000 #初始间隔毫秒， 默认1000
+        multiplier: 2 #下次间隔时间乘数因子 默认1.1
+        max-interval: 5000 #最大间隔毫秒 默认2000
+        max-attempts: 6 #最大重试次数 默认 6
+eureka:
+  instance:
+    instance-id: ${server.id}:${server.port}
+    prefer-ip-address: true
+    app-group-name: service-user
+    ip-address: ${server.ip}
+  client:
+    service-url:
+      defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
