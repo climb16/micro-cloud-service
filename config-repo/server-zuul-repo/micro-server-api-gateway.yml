@@ -3,7 +3,7 @@ server:
   id: ${spring.cloud.client.ipAddress}
   ip: ${spring.cloud.client.ipAddress}
 zuul:
-  ignored-services: * #禁止默认路由规则，一定要配置，否则会暴露所有服务
+  ignored-services: "*" #禁止默认路由规则，一定要配置，否则会暴露所有服务
   routes:
     api-a-user:
       path: /api-user/**
