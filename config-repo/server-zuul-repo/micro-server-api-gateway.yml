@@ -5,6 +5,6 @@ server:
 zuul:
   routes:
     api-a-user:
-      path: /api-user/**
+      #path: /api-user/**
       #url: http://localhost:8000/
-      service-id: SERVICE-USER
+      #service-id: SERVICE-USER
