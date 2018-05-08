@@ -8,9 +8,3 @@ zuul:
       path: /api-user/**
       #url: http://localhost:8000/
       service-id: SERVICE-USER
-ribbon:
-  eureka:
-    enabled: false
-SERVICE-USER:
-  ribbon:
-    list-of-servers: http://101.200.87.36:8000/,http://101.200.87.36:8001/
