@@ -1,0 +1,10 @@
+server:
+  port: 7010
+  id: ${spring.cloud.client.ipAddress}
+  ip: ${spring.cloud.client.ipAddress}
+zuul:
+  routes:
+    api-a-user:
+      path: /api-user/**
+      #url: http://localhost:8000/
+      service-id: SERVICE-USER
