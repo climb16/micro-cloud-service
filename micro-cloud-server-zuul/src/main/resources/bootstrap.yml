@@ -3,7 +3,7 @@ spring:
     name: micro-server-api-gateway
   cloud:
     config:
-      profile: ${spring.profiles.active}
+      profile: default
       label: master
       #uri: http://101.200.87.36:7000
       username: user
