@@ -6,6 +6,6 @@ zuul:
   ignored-services: "*" #禁止默认路由规则，一定要配置，否则会暴露所有服务
   routes:
     api-a-user:
-      path: /api-user/**
+      path: /api--user/**
       #url: http://localhost:8000/
       service-id: SERVICE-USER
