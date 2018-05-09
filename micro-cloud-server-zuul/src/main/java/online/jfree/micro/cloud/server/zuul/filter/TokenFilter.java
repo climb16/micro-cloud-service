@@ -2,7 +2,10 @@ package online.jfree.micro.cloud.server.zuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.springframework.context.annotation.Configuration;
+import com.netflix.zuul.exception.ZuulException;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.cloud.netflix.zuul.util.ZuulRuntimeException;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2018/5/8 14:27
  * @since 1.0
  */
-@Configuration
+@Component
 public class TokenFilter extends ZuulFilter {
 
     public static final String CHECK_ZUUL_TOKEN = "Check-Zuul-Token";
@@ -21,12 +24,12 @@ public class TokenFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return ZuulFilterType.PRE;
+        return FilterConstants.PRE_TYPE;
     }
 
     @Override
     public int filterOrder() {
-        return 0;
+        return 6;
     }
 
     @Override
@@ -45,9 +48,9 @@ public class TokenFilter extends ZuulFilter {
         HttpServletRequest request = cxt.getRequest();
         String zullToken = request.getHeader(ZUUL_TOKEN);
         if (zullToken == null || ("").equals(zullToken.trim())) {
-            cxt.setSendZuulResponse(false);
-            cxt.setResponseStatusCode(401);
-            return null;
+            cxt.setResponseStatusCode(200);
+            cxt.setSendZuulResponse(true);
+            throw new ZuulRuntimeException(new ZuulException(ZUUL_TOKEN, 401, ""));
         }
         return null;
     }

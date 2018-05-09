@@ -26,3 +26,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
+# 禁用 actuator 安全认证（否则所有基于actuator的访问都需要鉴权）
+management:
+  security:
+    enabled: false
