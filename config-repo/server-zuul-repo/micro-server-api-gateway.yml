@@ -1,7 +1,7 @@
 server:
   port: 7010
-  id: ${spring.cloud.client.ipAddress}
-  ip: ${spring.cloud.client.ipAddress}
+  id: 101.200.87.36
+  ip: 101.200.87.36
 zuul:
   ignored-services: "*" #禁止默认路由规则，一定要配置，否则会暴露所有服务
   routes:
