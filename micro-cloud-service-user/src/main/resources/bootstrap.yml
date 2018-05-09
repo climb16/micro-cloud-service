@@ -24,7 +24,7 @@ eureka:
     instance-id: ${server.id}:${server.port}
     prefer-ip-address: true
     app-group-name: service-user
-    ip-address: ${server.id}
+    #ip-address: ${server.id}
   client:
     service-url:
       defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
