@@ -2,6 +2,7 @@ server:
   port: 7016
   id: 101.200.87.36
   ip: 101.200.87.36
+spring:
   jpa:
     show-sql: true
   datasource:
