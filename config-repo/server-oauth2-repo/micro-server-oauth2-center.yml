@@ -1,0 +1,27 @@
+server:
+  port: 7016
+  id: ${spring.cloud.client.ipAddress}
+  ip: ${spring.cloud.client.ipAddress}
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://101.200.131.11:3306/auth?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 101.200.131.11
+    port: 6370
+    password: glx920616!@#
+endpoints:
+  health:
+    sensitive: false
+    enabled: true
+management:
+  security:
+    enabled: false
+security:
+  oauth2:
+    resource:
+      filter-order: 3
