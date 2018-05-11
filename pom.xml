@@ -13,6 +13,7 @@
         <module>micro-cloud-service-user</module>
         <module>micro-cloud-server-eureka</module>
         <module>micro-cloud-server-zuul</module>
+        <module>micro-cloud-server-oauth</module>
     </modules>
 
     <parent>

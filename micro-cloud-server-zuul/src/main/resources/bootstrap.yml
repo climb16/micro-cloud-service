@@ -30,3 +30,14 @@ eureka:
 management:
   security:
     enabled: false
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      ##网关的地址
+      access-token-uri: http://localhost:9030/uaa/oauth/token
+      user-authorization-uri: http://localhost:9030/uaa/oauth/authorize
+    resource:
+      user-info-uri:  http://localhost:9030/uaa/user
+      prefer-token-info: false
