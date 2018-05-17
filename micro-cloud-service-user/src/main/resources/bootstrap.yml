@@ -21,7 +21,7 @@ spring:
         max-attempts: 6 #最大重试次数 默认 6
 eureka:
   instance:
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    #instance-id: 101.200.87.36:7006:${server.port}
     prefer-ip-address: true
   client:
     service-url:
