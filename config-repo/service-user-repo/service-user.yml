@@ -3,13 +3,13 @@ spring:
 from: git-dev-1.1
 server:
   port: 8000
-  id: ${spring.cloud.client.ipAddress}
-  ip: ${spring.cloud.client.ipAddress}
+  id: ${spring.cloud.client.ip-address}
+  ip: ${spring.cloud.client.ip-address}
 ---
 spring:
   profiles: peer2
 from: git-dev-1.2
 server:
   port: 8001
-  id: ${spring.cloud.client.ipAddress}
-  ip: ${spring.cloud.client.ipAddress}
+  id: ${spring.cloud.client.ip-address}
+  ip: ${spring.cloud.client.ip-address}
