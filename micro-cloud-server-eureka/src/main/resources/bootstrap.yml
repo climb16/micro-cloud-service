@@ -2,4 +2,4 @@ spring:
   profiles:
     active: peer1
   application:
-    name: server-eureka
+    name: micro-server-eureka

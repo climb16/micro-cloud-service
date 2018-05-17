@@ -12,7 +12,7 @@ spring:
       password: be6e0132-5463-4e4e-981b-03bac4789d47
       discovery: #从eureka获取config地址
         enabled: true
-        service-id: MICRO-CONFIG-SERVER
+        service-id: MICRO-SERVER-CONFIG
       fail-fast: true   #快速失败，快速验证 config 是否可用,开启后retry才会生效
       retry: #重试机制
         initial-interval: 1000 #初始间隔毫秒， 默认1000
@@ -21,10 +21,8 @@ spring:
         max-attempts: 6 #最大重试次数 默认 6
 eureka:
   instance:
-    instance-id: ${server.id}:${server.port}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
-    app-group-name: service-user
-    #ip-address: ${server.id}
   client:
     service-url:
       defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
