@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>micro-cloud-service-user</artifactId>
+    <artifactId>micro-cloud-service-order</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -46,5 +47,4 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
-
 </project>

@@ -2,7 +2,7 @@ spring:
   profiles:
     active: peer1
   application:
-    name: service-user
+    name: service-order
   #cloud:
   #  config:
   #    profile: ${spring.profiles.active}

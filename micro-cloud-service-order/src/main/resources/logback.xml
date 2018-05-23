@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    ​
+  <!--  <property scope="context" name="springAppName" value="service-order"/>-->
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+
+    <property name="log_file" value="${BUILD_FOLDER:-build}/${springAppName}"/>
+
+    <property name="log_pattern"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [${springAppName},%X{X-B3-TraceId},%X{X-B3-SpanId},%thread] [%-5level] [%logger{10}] %msg%n"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>${log_pattern}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="logstash" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log_file}.json</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log_file}.json.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "createTime": "%d{yyyy-MM-dd HH:mm:ss.SSS}",
+                        "flag":"%X{flag}",
+                        "logIp":"%X{ip}",
+                        "msg":"%msg",
+                        "cacheOpt":"%X{cacheOpt}",
+                        "cacheValSize":"%X{cacheValSize}",
+                        "className":"%X{className}",
+                        "clientIp":"%X{clientIp}",
+                        "clientType":"%X{clientType}",
+                        "connCount":"%X{connCount}",
+                        "costTime":"%X{costTime}",
+                        "isErr":"%X{isErr}",
+                        "errName":"%X{errName}",
+                        "keyOrSql":"%X{keyOrSql}",
+                        "methodName":"%X{methodName}",
+                        "restUrl":"%X{restUrl}",
+                        "step":"%X{step}",
+                        "traceId" : "%X{X-B3-TraceId:-}",
+                        "parentSpanId" : "%X{X-B3-ParentSpanId:-}",
+                        "spanId" : "%X{X-B3-SpanId:-}",
+                        "sysName": "${springAppName:-}",
+                        "logLever": "%level",
+                        "thread": "%thread",
+                        "stack_trace": "%exception{5}"
+                        }
+                    </pattern>
+                </pattern>
+
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="logstash"/>
+    </root>
+</configuration>

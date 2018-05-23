@@ -1,0 +1,4 @@
+server:
+  port: 8000
+  id: ${spring.cloud.client.ipAddress}
+  ip: ${spring.cloud.client.ipAddress}
