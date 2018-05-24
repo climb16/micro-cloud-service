@@ -8,7 +8,7 @@
     <property name="log_file" value="${BUILD_FOLDER:-build}/${springAppName}"/>
 
     <property name="log_pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [${springAppName},%X{X-B3-TraceId},%X{X-B3-SpanId},%thread] [%-5level] [%logger{10}] %msg%n"/>
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} [${springAppName},%thread] [%X{X-B3-TraceId},%X{X-B3-ParentSpanId},%X{X-B3-SpanId},%X{X-Span-Export}] [%-5level] [%logger{10}] %msg%n"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

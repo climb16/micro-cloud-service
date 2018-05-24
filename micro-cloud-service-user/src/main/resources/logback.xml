@@ -2,15 +2,13 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     ​
-    <property scope="context" name="springAppName" value="service-user"/>
+  <!--  <property scope="context" name="springAppName" value="service-order"/>-->
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
 
     <property name="log_file" value="${BUILD_FOLDER:-build}/${springAppName}"/>
 
     <property name="log_pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [${springAppName},%X{X-B3-TraceId},%X{X-B3-SpanId},%thread] [%-5level] [%logger{10}] %msg%n"/>
-
-    <property name="json_pattern"
-              value="{serverity: %level, service: ${springAppName:-}, trace: %X{X-B3-TraceId:-}, span: %X{X-B3-SpanId:-}, exportable: %X{X-Span-Export:-}, pid: ${PID:-}, thread: %thread, class: %logger[40], rest: %message}"/>
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} [${springAppName},%thread] [%X{X-B3-TraceId},%X{X-B3-ParentSpanId},%X{X-B3-SpanId},%X{X-Span-Export}] [%-5level] [%logger{10}] %msg%n"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
