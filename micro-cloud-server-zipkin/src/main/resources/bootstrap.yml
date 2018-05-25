@@ -1,5 +1,13 @@
 spring:
   application:
     name: micro-server-zipkin
+  sleuth:
+    enabled: false #禁用监控自己
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 101.200.131.11:9090
+          zkNodes: 101.200.131.11:2080
 server:
   port: 9411

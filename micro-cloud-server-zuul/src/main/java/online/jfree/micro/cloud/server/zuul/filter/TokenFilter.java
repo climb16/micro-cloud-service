@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2018/5/8 14:27
  * @since 1.0
  */
-@Component
+//@Component
 public class TokenFilter extends ZuulFilter {
 
     public static final String CHECK_ZUUL_TOKEN = "Check-Zuul-Token";

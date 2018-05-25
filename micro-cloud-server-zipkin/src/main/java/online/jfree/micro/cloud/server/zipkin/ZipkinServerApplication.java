@@ -2,7 +2,7 @@ package online.jfree.micro.cloud.server.zipkin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import zipkin.server.EnableZipkinServer;
+import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer;
 
 /**
  * @description: ${todo}
@@ -11,7 +11,7 @@ import zipkin.server.EnableZipkinServer;
  * @since 1.0
  */
 @SpringBootApplication
-@EnableZipkinServer
+@EnableZipkinStreamServer
 public class ZipkinServerApplication {
 
     public static void main(String[] args) {

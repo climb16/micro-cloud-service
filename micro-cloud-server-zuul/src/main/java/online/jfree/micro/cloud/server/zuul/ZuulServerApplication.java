@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
-@EnableOAuth2Sso
+//@EnableOAuth2Sso
 public class ZuulServerApplication {
 
     public static void main(String[] args) {
