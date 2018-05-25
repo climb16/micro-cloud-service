@@ -7,5 +7,7 @@ zuul:
   routes:
     api-a-user:
       path: /api-service-user/**
-      #url: http://localhost:8000/
       service-id: SERVICE-USER
+    api-a-order:
+      path: /api-service-order/**
+      service-id: SERVICE-ORDER
