@@ -19,8 +19,8 @@ spring:
     percentage: 1
   kafka:
     bootstrap-servers: 10.170.185.49:9090
-      producer:
-        retries: 3
+    producer:
+      retries: 3
 server:
   port: 8007
   id: ${spring.cloud.client.ipAddress}
