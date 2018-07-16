@@ -1,3 +1,11 @@
+eureka:
+  instance:
+    instance-id: ${server.id}:${server.port}
+    prefer-ip-address: true
+    ip-address: ${server.ip}
+  client:
+    service-url:
+      defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
 spring:
   application:
     name: micro-server-api-gateway
@@ -17,15 +25,7 @@ spring:
         multiplier: 2 #下次间隔时间乘数因子 默认1.1
         max-interval: 5000 #最大间隔毫秒 默认2000
         max-attempts: 6 #最大重试次数 默认 6
-eureka:
-  instance:
-    instance-id: ${server.id}:${server.port}
-    prefer-ip-address: true
-    app-group-name: service-user
-    ip-address: ${server.ip}
-  client:
-    service-url:
-      defaultZone: http://101.200.87.36:7006/eureka/,http://101.200.87.36:7007/eureka/
+
 # 禁用 actuator 安全认证（否则所有基于actuator的访问都需要鉴权）
 management:
   security:
