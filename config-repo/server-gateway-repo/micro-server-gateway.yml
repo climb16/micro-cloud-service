@@ -45,7 +45,7 @@ spring:
       - id: user
         uri: lb://micro-service-user
         predicates:
-        - Path=/baidu
+        - Path=/api/user/**
         filters:
         - name: Hystrix
           args:
