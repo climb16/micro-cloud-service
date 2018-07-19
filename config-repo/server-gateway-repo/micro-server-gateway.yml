@@ -1,0 +1,63 @@
+server:
+  ip: ${spring.cloud.client.ip-address}
+  id: ${spring.cloud.client.ip-address}
+  port: 7010
+  http2:
+    enabled: true
+spring:
+  profiles: peer1
+  cloud:
+    gateway:
+      default-filters:
+      routes:
+      - id: user
+        uri: lb://micro-service-user
+        predicates:
+        - Path=/baidu
+        filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+        #- StripPrefix=1
+    inetutils:
+      ignored-interfaces[0]: eth0
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+---
+server:
+  ip: ${spring.cloud.client.ip-address}
+  id: ${spring.cloud.client.ip-address}
+  port: 7011
+  http2:
+    enabled: true
+spring:
+  profiles: peer2
+  cloud:
+    gateway:
+      default-filters:
+      routes:
+      - id: user
+        uri: lb://micro-service-user
+        predicates:
+        - Path=/baidu
+        filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+        #- StripPrefix=1
+    inetutils:
+      ignored-interfaces[0]: eth0
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
