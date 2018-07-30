@@ -12,7 +12,6 @@
         <module>micro-cloud-server-config</module>
         <module>micro-cloud-server-eureka</module>
         <module>micro-cloud-server-zuul</module>
-        <module>micro-cloud-server-oauth</module>
         <module>micro-cloud-server-gateway</module>
     </modules>
 
