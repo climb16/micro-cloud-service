@@ -26,7 +26,7 @@ spring:
             status: 404 #重试response code，默认没有
             statusSeries: 500 #重试response code的系列，100（info），200（success），300（redirect），400（client error），500（server error），默认500
             method: GET #重试的request请求，默认GET
-        - name: AuthGateway
+        - name: Auth
           args:
             enable: true
             name: Token
