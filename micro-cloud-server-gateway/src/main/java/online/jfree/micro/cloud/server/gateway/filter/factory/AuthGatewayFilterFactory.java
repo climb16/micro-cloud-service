@@ -45,7 +45,7 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
         };
     }
 
-    public class Config {
+    public static class Config {
         private boolean enable = false;
         private List<String> ignoresPath = Collections.emptyList();
         private String name = "Token";
